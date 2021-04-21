@@ -16,9 +16,7 @@ from flytekit.common.utils import _dnsify
 from flytekit.control_plane import component_nodes as _component_nodes
 from flytekit.control_plane import identifier as _identifier
 from flytekit.control_plane.tasks import executions as _task_executions
-from flytekit.core.context_manager import FlyteContext
 from flytekit.core.promise import NodeOutput
-from flytekit.core.type_engine import TypeEngine
 from flytekit.engines.flyte import engine as _flyte_engine
 from flytekit.interfaces.data import data_proxy as _data_proxy
 from flytekit.models import literals as _literal_models
