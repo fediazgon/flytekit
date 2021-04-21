@@ -172,7 +172,7 @@ class FlyteWorkflow(_hash_mixin.HashOnReferenceMixin, _workflow_models.WorkflowT
         # TODO: need to implement creation of new bindings with new type engine
         bindings, upstream_nodes = self.interface.create_bindings_for_inputs(input_map)
 
-        node = _nodes.FlyteNode(
+        return _nodes.FlyteNode(
             id=None,
             metadata=_workflow_models.NodeMetadata(
                 "placeholder", _datetime.timedelta(), _literal_models.RetryStrategy(0)
@@ -181,4 +181,3 @@ class FlyteWorkflow(_hash_mixin.HashOnReferenceMixin, _workflow_models.WorkflowT
             bindings=sorted(bindings, key=lambda b: b.var),
             sdk_workflow=self,
         )
-        return node

@@ -44,7 +44,7 @@ class FlyteNode(_hash_mixin.HashOnReferenceMixin, _workflow_model.Node):
         non_none_entities = list(filter(None, [flyte_task, flyte_workflow, flyte_launch_plan, flyte_branch]))
         if len(non_none_entities) != 1:
             raise _user_exceptions.FlyteAssertion(
-                "An SDK node must have one underlying entity specified at once.  Received the following "
+                "An Flyte node must have one underlying entity specified at once.  Received the following "
                 "entities: {}".format(non_none_entities)
             )
 
@@ -285,6 +285,7 @@ class FlyteNodeExecution(_node_execution_models.NodeExecution, _artifact_mixin.E
                 _task_executions.FlyteTaskExecution.promote_from_model(t)
                 for t in _iterate_task_executions(client, self.id)
             ]
+            # TODO: sync sub-workflows as well
 
     def _sync_closure(self):
         """
